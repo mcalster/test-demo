@@ -1,6 +1,5 @@
 package dk.alster.it.demo.testdemo;
 
-import dk.alster.it.demo.testdemo.repository.TaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,10 +12,10 @@ public class TaskService {
         this.taskRepository = taskRepository;
     }
 
-    public String getTitleFromId(Long id){
+    public String getTitleFromId(Long id) {
 
-        Task task  = taskRepository.findOne(id);
+        Task task = taskRepository.findOne(id);
 
-        return task == null ? "" : task.getTitle();
+        return task == null ? null : task.getTitle();
     }
 }

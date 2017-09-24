@@ -3,10 +3,20 @@ package dk.alster.it.demo.testdemo;
 import lombok.Builder;
 import lombok.Data;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 @Data
 @Builder
+@Entity
 public class Task {
 
     private String title;
-    private String id;
+
+
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Id
+    private Long id;
 }
