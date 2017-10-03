@@ -7,6 +7,7 @@ import org.junit.runner.RunWith;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.mock;
 
@@ -22,6 +23,10 @@ public class TaskServiceTest {
         service = new TaskService(repository);
     }
 
+    @Test
+    public void testAtTheHighestLevel() {
+        assertTrue(true);
+    }
     public class FindById {
 
         private final Long TASK_ID = 1L;

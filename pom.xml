@@ -173,7 +173,7 @@
                         </goals>
                         <configuration>
                             <!-- Sets the path to the file which contains the execution data. -->
-                            <destFile>${project.build.directory}/coverage-reports/jacoco-ut.exec</destFile>
+                            <destFile>${project.reporting.outputDirectory}/jacoco.exec</destFile>
                             <!--
                                 Sets the name of the property containing the settings
                                 for JaCoCo runtime agent.
@@ -193,9 +193,9 @@
                         </goals>
                         <configuration>
                             <!-- Sets the path to the file which contains the execution data. -->
-                            <dataFile>${project.build.directory}/coverage-reports/jacoco-ut.exec</dataFile>
+                            <dataFile>${project.reporting.outputDirectory}/jacoco.exec</dataFile>
                             <!-- Sets the output directory for the code coverage report. -->
-                            <outputDirectory>${project.reporting.outputDirectory}/jacoco-ut</outputDirectory>
+                            <outputDirectory>${project.reporting.outputDirectory}/</outputDirectory>
                         </configuration>
                     </execution>
 
@@ -211,7 +211,7 @@
                         </goals>
                         <configuration>
                             <!-- Sets the path to the file which contains the execution data. -->
-                            <destFile>${project.build.directory}/coverage-reports/jacoco-it.exec</destFile>
+                            <destFile>${basedir}/target/jacoco-it.exec</destFile>
                             <!--
                                 Sets the name of the property containing the settings
                                 for JaCoCo runtime agent.
@@ -231,9 +231,7 @@
                         </goals>
                         <configuration>
                             <!-- Sets the path to the file which contains the execution data. -->
-                            <dataFile>${project.build.directory}/coverage-reports/jacoco-it.exec</dataFile>
-                            <!-- Sets the output directory for the code coverage report. -->
-                            <outputDirectory>${project.reporting.outputDirectory}/jacoco-it</outputDirectory>
+                            <dataFile>${basedir}/target/jacoco-it.exec</dataFile>
                         </configuration>
                     </execution>
                     <execution>
@@ -265,9 +263,6 @@
         <!-- The Configuration of the development profile -->
         <profile>
             <id>dev</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
             <properties>
                 <!--
                     Specifies the build.profile.id property that must be equal than the name of
@@ -311,9 +306,8 @@
             </activation>
             <properties>
                 <!-- Optional URL to server. Default value is http://localhost:9000 -->
-                <sonar.host.url>
-                    http://myserver:9000
-                </sonar.host.url>
+                <sonar.host.url>http://localhost:9000</sonar.host.url>
+                <sonar.test.exclusions>src/*test/**/*</sonar.test.exclusions>
             </properties>
         </profile>
     </profiles>
